@@ -1,5 +1,20 @@
 # IDS706 PySpark Data Processing with Databricks
 ## 0. Data Source and Acknowledgement
+**Source: [Kaggle Link](https://www.kaggle.com/datasets/jakewright/9000-tickers-of-stock-market-data-full-history/)**\
+**Stock Market Data: 9,000+ Tickers (1962 - Present)**
+### Dataset Overview
+This dataset offers comprehensive historical stock market data covering over 9,000 tickers from 1962 to the present day. It includes essential daily trading information, making it suitable for various financial analyses, trend studies, and algorithmic trading model development.
+### Columns
+- **Date**: The date of the recorded trading data.
+- **Ticker**: The stock symbol of the company.
+- **Open**: Opening price of the stock on the trading day.
+- **High**: Highest price reached during the trading day.
+- **Low**: Lowest price reached during the trading day.
+- **Close**: Closing price of the stock on the trading day.
+- **Volume**: The total number of shares traded during the day.
+- **Dividends**: Cash dividends issued on the date, if applicable.
+- **Stock Splits**: Stock split factor for the date, if any split occurred.
+  
 ## 1. Data Processing Pipeline (see notebook for details)
 - Load data using PySpark (Parquet, or any format)
 - Apply transformations:
