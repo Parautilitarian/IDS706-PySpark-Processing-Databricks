@@ -1,6 +1,6 @@
 # IDS706 PySpark Data Processing with Databricks
-## Data Source and Acknowledgement
-## Data Processing Pipeline (see notebook)
+## 0. Data Source and Acknowledgement
+## 1. Data Processing Pipeline (see notebook for details)
 - Load data using PySpark (Parquet, or any format)
 - Apply transformations:
   - 2+ filter operations
@@ -14,7 +14,7 @@
   - Avoid unnecessary shuffles where possible
 - Write results to a destination (Parquet files, database, etc.)
  
-## Performance Analysis
+## 2. Performance Analysis
 ### Use .explain() to show the physical execution plan
 ![alt text](screenshots/explain_formatted.png)
 ```Python
@@ -167,3 +167,11 @@ print("Second action (cached) took:", round(time.time() - start, 2), "seconds")
 ```
 The first uncached action will take longer (Spark scans and computes everything).
 **After caching, subsequent actions on the same DataFrame run significantly faster, since Spark loads the data from memory instead of recomputing.**
+
+### Pipeline Exeucution
+
+## 3. Actions vs Transformations
+Demonstration showing the difference between transformations (lazy) and actions (eager):
+
+## 4. Machine Learning
+Use MLlib for a simple ML task (classification, regression, or clustering)
