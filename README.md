@@ -187,6 +187,21 @@ The first uncached action will take longer (Spark scans and computes everything)
 
 ## 3. Actions vs Transformations
 Demonstration showing the difference between transformations (lazy) and actions (eager):
+- Only when .show() or .count() runs does Databricks:
+  - Start a job
+  - Display the spinner / query execution info
+  - Show logs and timing
+- The .explain() output before the .show() just prints the logical plan, proving no execution yet.
+- Lazy evaluation allows Spark to
+  - Optimize the full DAG before execution (e.g., combine filters, rearrange operations)
+  - Delay expensive computations until absolutely required
+  - Avoid intermediate writes or redundant recalculations
+- Transformation: filter, select, withColumn, groupBy, join
+- Action: show, count, collect, write
 
 ## 4. Machine Learning
-Use MLlib for a simple ML task (classification, regression, or clustering)
+Use MLlib for a simple ML task for regression
+- Transformations: Operations like VectorAssembler.transform() are lazy until an action like .fit() runs.
+- Action: .fit() triggers Spark to execute the DAG and train the model on distributed data.
+- Optimization: Spark parallelizes the regression fitting process across executors for scalability.
+- Evaluation: MLlib metrics (RMSE, R², accuracy for classification, etc.).
