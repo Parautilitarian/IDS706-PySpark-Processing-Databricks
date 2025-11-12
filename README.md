@@ -199,6 +199,26 @@ Demonstration showing the difference between transformations (lazy) and actions 
 - Transformation: filter, select, withColumn, groupBy, join
 - Action: show, count, collect, write
 
+```Python
+Transformations only (lazy): 16.2245s — no actual computation yet!
+
+Action 1: count() — triggers Spark job
+Count result = 354901 rows, took 7.52s
+
+Action 2: show() — triggers Spark job again
++----------+------+------------------+---------+
+|      Date|Ticker|             Close|   Volume|
++----------+------+------------------+---------+
+|2020-10-14|    BA|163.24000549316406|1.05055E7|
+|2020-10-14|  TSCO| 150.5421142578125|1470900.0|
+|2020-10-14|   PLD|101.38773345947266|1668000.0|
+|2020-10-14|    CI|171.40353393554688|1403700.0|
+|2020-10-14|  CDNS|116.97000122070312|1639700.0|
++----------+------+------------------+---------+
+only showing top 5 rows
+show() took 1.60s
+```
+
 ## 4. Machine Learning
 Use MLlib for a simple ML task for regression
 - Transformations: Operations like VectorAssembler.transform() are lazy until an action like .fit() runs.
